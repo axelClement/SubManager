@@ -23,7 +23,7 @@ export const MOCK_SUBSCRIPTIONS: Subscription[] = [
         startDate: "2023-01-15T00:00:00Z",
         category: "streaming",
         active: true,
-        logoUrl: "https://assets.nflxext.com/us/ffe/siteui/common/icons/nficon2016.png",
+        logoUrl: "https://cdn.simpleicons.org/netflix/E50914",
         cancellationMethod: {
             type: "online",
             steps: [
@@ -56,7 +56,7 @@ export const MOCK_SUBSCRIPTIONS: Subscription[] = [
         startDate: "2022-05-28T00:00:00Z",
         category: "streaming",
         active: true,
-        logoUrl: "https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_Green.png",
+        logoUrl: "https://cdn.simpleicons.org/spotify/1DB954",
         cancellationMethod: {
             type: "online",
             steps: [
@@ -78,6 +78,7 @@ export const MOCK_SUBSCRIPTIONS: Subscription[] = [
         startDate: "2021-09-01T00:00:00Z",
         category: "utilities",
         active: true,
+        logoUrl: "/logos/EDF.svg",
         cancellationMethod: {
             type: "phone",
             steps: [
@@ -98,6 +99,7 @@ export const MOCK_SUBSCRIPTIONS: Subscription[] = [
         startDate: "2020-03-12T00:00:00Z",
         category: "mobile",
         active: true,
+        logoUrl: "/logos/free.svg",
         cancellationMethod: {
             type: "letter",
             steps: [
@@ -128,7 +130,7 @@ export const MOCK_SUBSCRIPTIONS: Subscription[] = [
         startDate: "2019-09-15T00:00:00Z",
         category: "other",
         active: true,
-        logoUrl: "https://m.media-amazon.com/images/G/01/prime/marketing/slashPrime/amazon-prime-delivery-logo._CB610543632_.png"
+        logoUrl: "/logos/amazon.svg"
     },
     {
         id: "6",
@@ -141,6 +143,7 @@ export const MOCK_SUBSCRIPTIONS: Subscription[] = [
         startDate: "2024-01-01T00:00:00Z",
         category: "gym",
         active: true,
+        logoUrl: "/logos/basic_fit.svg",
         cancellationMethod: {
             type: "online",
             steps: ["Log in to the Basic-Fit app or website.", "Go to membership details.", "Request cancellation (requires 30 days notice)."]

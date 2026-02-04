@@ -83,38 +83,40 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="space-y-3">
+        <div className="flex flex-col gap-3">
           {upcomingRenewals.map((sub) => {
             const daysUntil = Math.ceil((new Date(sub.nextPaymentDate).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24));
             return (
-              <Card key={sub.id} className="group hover:bg-white/10 transition-colors border-white/5 bg-white/5">
-                <CardContent className="p-4 flex items-center justify-between">
-                  <div className="flex items-center gap-4">
-                    {sub.logoUrl ? (
-                      <img src={sub.logoUrl} alt={sub.name} className="h-10 w-10 rounded-full object-cover bg-white/10" />
-                    ) : (
-                      <div className="h-10 w-10 rounded-full bg-slate-800 flex items-center justify-center text-xs">
-                        {sub.serviceName[0]}
+              <Link href={`/subscription/${sub.id}`} key={sub.id} className="block">
+                <Card className="group hover:bg-white/10 transition-colors border-white/5 bg-white/5">
+                  <CardContent className="p-4 flex items-center justify-between">
+                    <div className="flex items-center gap-4">
+                      {sub.logoUrl ? (
+                        <img src={sub.logoUrl} alt={sub.name} className="h-10 w-10 rounded-xl object-contain bg-white p-1" />
+                      ) : (
+                        <div className="h-10 w-10 rounded-full bg-slate-800 flex items-center justify-center text-xs">
+                          {sub.serviceName[0]}
+                        </div>
+                      )}
+                      <div className="min-w-0">
+                        <h4 className="font-semibold text-sm truncate">{sub.name}</h4>
+                        <p className="text-xs text-muted-foreground">
+                          {new Date(sub.nextPaymentDate).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
+                        </p>
                       </div>
-                    )}
-                    <div>
-                      <h4 className="font-semibold text-sm">{sub.name}</h4>
-                      <p className="text-xs text-muted-foreground">
-                        {new Date(sub.nextPaymentDate).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
-                      </p>
                     </div>
-                  </div>
-                  <div className="text-right">
-                    <p className="font-bold text-sm">{sub.price}€</p>
-                    {daysUntil <= 3 && (
-                      <div className="flex items-center text-xs text-orange-400 gap-1">
-                        <AlertCircle className="h-3 w-3" />
-                        <span>In {daysUntil} days</span>
-                      </div>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
+                    <div className="text-right">
+                      <p className="font-bold text-sm">{sub.price}€</p>
+                      {daysUntil <= 3 && (
+                        <div className="flex items-center text-xs text-orange-400 gap-1">
+                          <AlertCircle className="h-3 w-3" />
+                          <span>In {daysUntil} days</span>
+                        </div>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
             )
           })}
         </div>

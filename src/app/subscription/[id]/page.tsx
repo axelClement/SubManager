@@ -1,6 +1,6 @@
 "use client";
 
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { MOCK_SUBSCRIPTIONS } from "@/lib/mockData";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -11,6 +11,7 @@ import { notFound } from "next/navigation";
 
 export default function SubscriptionDetail() {
     const params = useParams();
+    const router = useRouter();
     const sub = MOCK_SUBSCRIPTIONS.find(s => s.id === params.id);
 
     if (!sub) {
@@ -20,16 +21,19 @@ export default function SubscriptionDetail() {
     return (
         <div className="max-w-md mx-auto min-h-screen p-6 space-y-6 pb-20">
             <header className="flex items-center gap-4">
-                <Link href="/subscriptions" className="p-2 -ml-2 hover:bg-white/10 rounded-full transition-colors">
+                <button
+                    onClick={() => router.back()}
+                    className="p-2 -ml-2 hover:bg-white/10 rounded-full transition-colors"
+                >
                     <ArrowLeft className="h-6 w-6" />
-                </Link>
+                </button>
                 <h1 className="text-xl font-bold truncate">{sub.name}</h1>
             </header>
 
             {/* Overview Card */}
             <div className="flex flex-col items-center py-6">
                 {sub.logoUrl ? (
-                    <img src={sub.logoUrl} alt={sub.name} className="h-24 w-24 rounded-full object-cover mb-4 shadow-2xl ring-4 ring-white/5" />
+                    <img src={sub.logoUrl} alt={sub.name} className="h-24 w-24 rounded-2xl object-contain bg-white p-2 mb-4 shadow-2xl ring-4 ring-white/5" />
                 ) : (
                     <div className="h-24 w-24 rounded-full bg-gradient-to-br from-slate-700 to-slate-900 flex items-center justify-center text-2xl mb-4 font-bold ring-4 ring-white/5">
                         {sub.serviceName[0]}

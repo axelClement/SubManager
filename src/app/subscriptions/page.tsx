@@ -71,15 +71,15 @@ export default function SubscriptionsPage() {
                             <CardContent className="p-4 flex items-center justify-between">
                                 <div className="flex items-center gap-4">
                                     {sub.logoUrl ? (
-                                        <img src={sub.logoUrl} alt={sub.name} className="h-10 w-10 rounded-full object-cover bg-white/10" />
+                                        <img src={sub.logoUrl} alt={sub.name} className="h-10 w-10 rounded-xl object-contain bg-white p-1" />
                                     ) : (
                                         <div className="h-10 w-10 rounded-full bg-slate-800 flex items-center justify-center text-xs">
                                             {sub.serviceName[0]}
                                         </div>
                                     )}
-                                    <div>
-                                        <h4 className="font-semibold text-sm">{sub.name}</h4>
-                                        <p className="text-xs text-muted-foreground capitalize">{sub.category} • {sub.billingCycle}</p>
+                                    <div className="min-w-0">
+                                        <h4 className="font-semibold text-sm truncate">{sub.name}</h4>
+                                        <p className="text-xs text-muted-foreground capitalize truncate">{sub.category} • {sub.billingCycle}</p>
                                     </div>
                                 </div>
                                 <div className="text-right">
