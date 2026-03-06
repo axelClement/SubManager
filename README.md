@@ -1,36 +1,108 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SubManager
+
+A mobile-first subscription management application that gives users a clear overview of their recurring expenses. Track every subscription, monitor upcoming payments, analyse spending by category, and find cheaper alternatives — all from a single interface.
+
+---
+
+## Screenshots
+
+| Dashboard | All Subscriptions |
+|-----------|------------------|
+| ![Dashboard](screenshots/dashboard.png) | ![All Subscriptions](screenshots/all_subs.png) |
+
+| Subscription Detail | Add Subscription |
+|--------------------|-----------------|
+| ![Subscription Detail](screenshots/sub_ex.png) | ![Add Subscription](screenshots/add_sub.png) |
+
+---
+
+## Features
+
+- **Dashboard** — At-a-glance view of total monthly spending, number of active subscriptions, and the three most upcoming payment dates.
+- **Subscription list** — Browse all subscriptions grouped and filtered by category, with billing cycle and next payment date.
+- **Subscription detail** — Full information per subscription including logo, price, billing cycle, start date, step-by-step cancellation instructions, and suggested cheaper alternatives.
+- **Spending analysis** — Visual category breakdown showing where money goes each month as absolute values and percentages.
+- **Add subscription** — Form to register a new subscription with service name, price, billing cycle, and category.
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Framework | [Next.js 16](https://nextjs.org) — App Router |
+| Language | TypeScript 5 |
+| Styling | Tailwind CSS v4 |
+| UI Components | Custom components built with `class-variance-authority` |
+| Icons | [Lucide React](https://lucide.dev) |
+| Date utilities | [date-fns](https://date-fns.org) |
+| Runtime | React 19 |
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18 or later
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+```bash
+git clone https://github.com/your-username/SubManager.git
+cd SubManager
+npm install
+```
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Production build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+├── app/
+│   ├── page.tsx              # Dashboard
+│   ├── subscriptions/        # All subscriptions list
+│   ├── subscription/[id]/    # Subscription detail page
+│   ├── analysis/             # Spending analysis
+│   └── add/                  # Add subscription form
+├── components/
+│   └── ui/                   # Reusable UI components (Button, Card, Badge, Input)
+├── lib/
+│   ├── mockData.ts           # Sample subscription data
+│   └── utils.ts              # Utility functions
+└── types/
+    └── index.ts              # TypeScript type definitions
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Roadmap
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Backend integration with a database (PostgreSQL / Supabase)
+- Authentication and per-user subscription storage
+- Push notifications for upcoming payments
+- CSV / PDF export of spending history
+- Currency conversion support
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
